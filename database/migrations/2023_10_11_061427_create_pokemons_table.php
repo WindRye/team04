@@ -19,6 +19,7 @@ class CreatePokemonsTable extends Migration
             $table->string('region');
             $table->string('gender');
             $table->string('ability');
+            $table->string('debug');
             $table->timestamps();
         });
     }
