@@ -15,7 +15,7 @@ class CreateTypesTable extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
-            $table->string('type')->comment('屬性');
+            $table->string('type')->nullable()->comment('屬性');
             $table->string('super_effective1')->comment('效果絕佳1');
             $table->string('super_effective2')->comment('效果絕佳2');
             $table->string('super_effective3')->comment('效果絕佳3');
