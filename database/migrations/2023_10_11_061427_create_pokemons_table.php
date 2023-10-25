@@ -24,6 +24,7 @@ class CreatePokemonsTable extends Migration
             $table->string('gender')->comment('性別');
             $table->string('ability')->nullable()->comment('特性');
             $table->timestamps();
+            
         });
     }
 
