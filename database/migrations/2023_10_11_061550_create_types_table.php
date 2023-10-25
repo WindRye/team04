@@ -30,6 +30,7 @@ class CreateTypesTable extends Migration
             $table->string('not_very_effective7')->comment('收效甚微7');
             $table->string('not_effective')->comment('技能無效');
             $table->timestamps();
+            
         });
     }
 
