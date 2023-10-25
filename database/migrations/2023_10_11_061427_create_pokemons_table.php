@@ -16,7 +16,7 @@ class CreatePokemonsTable extends Migration
         Schema::create('pokemons', function (Blueprint $table) {
             $table->id();
             $table->string('pokemon')->nullable()->comment('寶可夢');
-            $table->string('region');
+            $table->string('region')->comment('地區');
             $table->integer('tid1')->unsigned()->nullable()->comment('屬性編號1');
             $table->integer('tid2')->unsigned()->nullable()->comment('屬性編號2');
             $table->double('height')->unsigned()->comment('身高');
