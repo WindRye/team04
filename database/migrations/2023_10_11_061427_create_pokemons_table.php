@@ -22,13 +22,13 @@ class CreatePokemonsTable extends Migration
                     ->references('id')
                     ->on('types')
                     ->onDelete('cascade');
-            $table->integer('tid2')->comment('屬性編號2(外部鍵)');
+            $table->foreignId('tid2')->comment('屬性編號2(外部鍵)');
             $table->foreign('tid2')
                     ->references('id')
                     ->on('types')
                     ->onDelete('cascade');
-            $table->double('height')->nullable()->unsigned()->comment('身高');
-            $table->double('weight')->nullable()->unsigned()->comment('體重');
+            $table->double('height')->nullable()->unsigned()->comment('身高m');
+            $table->double('weight')->nullable()->unsigned()->comment('體重kg');
             $table->string('gender')->nullable()->comment('性別');
             $table->string('ability')->comment('特性');
             $table->timestamps();
