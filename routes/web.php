@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PokemonsController;
+use App\Http\Controllers\TypesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',function(){
+    return redirect('pokemons');
 });
+
+
+Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
+Route::get('types',[TypesController::class,'index'])->name('types.index');
