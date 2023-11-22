@@ -18,7 +18,6 @@ class PokemonsController extends Controller
         $p = Pokemon::all()->toArray();
         return view('pokemons.index')->with('pokemons',$p);
     }
-//base64:DvAjN5oXeEHcDCJLzug6WEPYNioWAKnz5J/y/dhQI84=
     /**
      * Show the form for creating a new resource.
      *
