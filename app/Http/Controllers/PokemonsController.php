@@ -15,7 +15,8 @@ class PokemonsController extends Controller
      */
     public function index()
     {
-       return Pokemon::all()->toArray();
+        $p = Pokemon::all()->toArray();
+        return view('pokemons.index')->with('pokemons',$p);
     }
 
     /**
