@@ -15,7 +15,10 @@ class PokemonsController extends Controller
      */
     public function index()
     {
-       return Pokemon::all()->toArray();
+        //從model拿資料
+       $p = Pokemon::all()->toArray();
+       //把資料送給view
+       return view('pokemons.index')->with('pokemons', $p);
     }
 
     /**
