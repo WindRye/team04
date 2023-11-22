@@ -19,4 +19,9 @@ Route::get('/',function(){
 
 
 Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
+Route::get('pokemons/create',);
+Route::get('pokemons/store',);
+
+
+
 Route::get('types',[TypesController::class,'index'])->name('types.index');
