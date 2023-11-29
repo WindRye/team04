@@ -28,7 +28,7 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-    @for($i=0; $i<count($teams); $i++)
+    @for($i=0; $i<count($types); $i++)
         <tr>
             <td>{{ $types[$i]['id'] }}</td>
             <td>{{ $types[$i]['type'] }}</td>
