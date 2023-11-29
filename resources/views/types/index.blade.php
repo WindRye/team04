@@ -31,7 +31,7 @@
     @for($i=0; $i<count($types); $i++)
         <tr>
             <td>{{ $types[$i]['id'] }}</td>
-            <td>{{ $types[$i]['type'] }}</td>
+            <td>{{ $types[$i]['types'] }}</td>
             <td>{{ $types[$i]['super_effective1'] }}</td>
             <td>{{ $types[$i]['super_effective2'] }}</td>
             <td>{{ $types[$i]['super_effective3'] }}</td>

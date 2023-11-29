@@ -21,8 +21,11 @@
     </tr>
     @for($i=0; $i<count($pokemons);$i++)
         <tr>
+            <td>{{ $pokemons[$i]['id'] }}</td>
             <td>{{ $pokemons[$i]['pokemon'] }}</td>
             <td>{{ $pokemons[$i]['region'] }}</td>
+            <td>{{ $pokemons[$i]['tid1'] }}</td>
+            <td>{{ $pokemons[$i]['tid2'] }}</td>
             <td>{{ $pokemons[$i]['height'] }}</td>
             <td>{{ $pokemons[$i]['weight'] }}</td>
             <td>{{ $pokemons[$i]['gender'] }}</td>
