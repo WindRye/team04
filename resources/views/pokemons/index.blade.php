@@ -1,11 +1,8 @@
-<html>
+@extends('app')
 
-<html>
-<title>列出所有寶可夢</title>
-</head>
+@section('title', '寶可夢網站 - 列出所有寶可夢')
 
-<body>
-
+@section('pokemon_contents')
 <h1>列出所有寶可夢</h1>
 <table>
     <tr>
@@ -39,7 +36,4 @@
     </tr>
     @endfor
 </table>
-
-</body>
-</html>
-
+@endsection
