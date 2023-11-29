@@ -16,6 +16,19 @@ use App\Http\Controllers\TypesController;
 Route::get('/',function(){
     return redirect('pokemons');
 });
+// 顯示顯示所有寶可夢資料
+Route::get('pokemons', [PokemonsController::class, 'index'])->name('pokemons.index');
+// 顯示單一寶可夢資料
+Route::get('pokemons/{id}', [PokemonsController::class, 'show'])->where('id', '[0-9]+')->name('pokemons.show');
+// 修改單一寶可夢表單
+Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id', '[0-9]+')->name('pokemons.edit');
+
+// 顯示顯示所有屬性資料
+Route::get('types', [TypesController::class, 'index'])->name('types.index');
+// 顯示單一屬性資料
+Route::get('types/{id}', [TypesController::class, 'show'])->where('id', '[0-9]+')->name('types.show');
+// 修改單一屬性表單
+Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0-9]+')->name('types.edit');
 
 
 Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');

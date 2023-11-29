@@ -48,7 +48,7 @@ class PokemonsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Pokemon::findOrFail($id)->toArray();
     }
 
     /**
@@ -59,7 +59,7 @@ class PokemonsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Pokemon::findOrFail($id)->toArray();
     }
 
     /**
