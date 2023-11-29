@@ -1,10 +1,6 @@
-<html>
+@extends('app')
 
-<html>
-<title>列出所有屬性相剋</title>
-</head>
-
-<body>
+@section('pokemon_contents')
 
 <h1>列出所有屬性相剋</h1>
 <table>
@@ -49,5 +45,4 @@
     @endfor
 </table>
 
-</body>
-</html>
+@endsection
