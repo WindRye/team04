@@ -17,6 +17,11 @@ Route::get('/',function(){
     return redirect('pokemons');
 });
 
-
+// 顯示顯示所有寶可夢資料
 Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
-Route::get('types',[TypesController::class,'index'])->name('types.index');
+Route::get('pokemons/create',);
+Route::get('pokemons/store',);
+// 顯示單一寶可夢資料
+Route::get('pokemons/{id}', [PokemonsController::class, 'show'])->where('id', '[0-9]+')->name('pokemons.show');
+// 修改單一寶可夢表單 
+Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id', '[0-9]+')->name('pokemons.edit');
