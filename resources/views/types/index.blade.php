@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title', '顯示特定屬性')
+
+@section('pokemon_theme', '您所選取的寶可夢屬性資料')
+
 @section('pokemon_contents')
 
 <h1>列出所有屬性相剋</h1>
@@ -21,28 +25,28 @@
         <th>收效甚微7</th>
         <th>技能無效</th>
     </tr>
-    @for($i=0; $i<count($types); $i++)
+    @foreach($types as $type)
     <tr>
-    <td>{{ $types[$i]['id'] }}</td>
-    <td>{{ $types[$i]['types'] }}</td>
-    <td>{{ $types[$i]['super_effective1'] }}</td>
-    <td>{{ $types[$i]['super_effective2'] }}</td>
-    <td>{{ $types[$i]['super_effective3'] }}</td>
-    <td>{{ $types[$i]['super_effective4'] }}</td>
-    <td>{{ $types[$i]['super_effective5'] }}</td>
-    <td>{{ $types[$i]['not_very_effective1'] }}</td>
-    <td>{{ $types[$i]['not_very_effective2'] }}</td>
-    <td>{{ $types[$i]['not_very_effective3'] }}</td>
-    <td>{{ $types[$i]['not_very_effective4'] }}</td>
-    <td>{{ $types[$i]['not_very_effective5'] }}</td>
-    <td>{{ $types[$i]['not_very_effective6'] }}</td>
-    <td>{{ $types[$i]['not_very_effective7'] }}</td>
-    <td>{{ $types[$i]['not_effective'] }}</td>
-    <td><a href="{{ route('types.show', ['id'=>$types[$i]['id']]) }}">顯示</a></td>
-            <td><a href="{{ route('types.edit', ['id'=>$types[$i]['id']]) }}">修改</a></td>    
+            <td>{{ $type->id }}</td>
+            <td>{{ $type->types }}</td>
+            <td>{{ $type->super_effective1 }}</td>
+            <td>{{ $type->super_effective2 }}</td>
+            <td>{{ $type->super_effective3 }}</td>
+            <td>{{ $type->super_effective4 }}</td>
+            <td>{{ $type->super_effective5 }}</td>
+            <td>{{ $type->not_very_effective1 }}</td>
+            <td>{{ $type->not_very_effective2 }}</td>
+            <td>{{ $type->not_very_effective3 }}</td>
+            <td>{{ $type->not_very_effective4 }}</td>
+            <td>{{ $type->not_very_effective5 }}</td>
+            <td>{{ $type->not_very_effective6 }}</td>
+            <td>{{ $type->not_very_effective7 }}</td>
+            <td>{{ $type->not_effective }}</td>
+            <td><a href="{{ route('types.show', ['id'=>$type->id]) }}">顯示</a></td>
+            <td><a href="{{ route('types.edit', ['id'=>$type->id]) }}">修改</a></td>     
             <td>刪除</td>    
     </tr>
-    @endfor
+    @endforeach
 </table>
 
 @endsection

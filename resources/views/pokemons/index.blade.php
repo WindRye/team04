@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title', '顯示特定屬性')
+
+@section('pokemon_theme', '您所選取的寶可夢屬性資料')
+
 @section('pokemon_contents')
 <h1>列出所有寶可夢</h1>
 <table>
@@ -17,22 +21,22 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-    @for($i=0; $i<count($pokemons); $i++)
-    <tr>
-    <td>{{ $pokemons[$i]['id'] }}</td>
-    <td>{{ $pokemons[$i]['pokemon'] }}</td>
-    <td>{{ $pokemons[$i]['region'] }}</td>
-    <td>{{ $pokemons[$i]['tid1'] }}</td>
-    <td>{{ $pokemons[$i]['tid2'] }}</td>
-    <td>{{ $pokemons[$i]['height'] }}</td>
-    <td>{{ $pokemons[$i]['weight'] }}</td>
-    <td>{{ $pokemons[$i]['gender'] }}</td>
-    <td>{{ $pokemons[$i]['ability'] }}</td>
-    <td><a href="{{ route('pokemons.show', ['id'=>$pokemons[$i]['id']]) }}">顯示</a></td>
-            <td><a href="{{ route('pokemons.edit', ['id'=>$pokemons[$i]['id']]) }}">修改</a></td>    
-            <td>刪除</td>    
+    @foreach($pokemons as $pokemon)
+        <tr>
+        <td>{{ $pokemon->id }}</td>
+        <td>{{ $pokemon->pokemon }}</td>
+        <td>{{ $pokemon->region }}</td>
+        <td>{{ $pokemon->tid1 }}</td>
+        <td>{{ $pokemon->tid2 }}</td>
+        <td>{{ $pokemon->height }}</td>
+        <td>{{ $pokemon->weight }}</td>
+        <td>{{ $pokemon->gender }}</td>
+        <td>{{ $pokemon->ability }}</td>
+        <td><a href="{{ route('pokemons.show', ['id'=>$pokemon->id]) }}">顯示</a></td>
+        <td><a href="{{ route('pokemons.edit', ['id'=>$pokemon->id]) }}">修改</a></td>     
+        <td>刪除</td>    
     </tr>
-    @endfor
+    @endforeach
 </table>
 
 
