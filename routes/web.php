@@ -35,5 +35,5 @@ Route::get('types/{id}', [TypesController::class, 'show'])->where('id', '[0-9]+'
 Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0-9]+')->name('types.edit');
 
 
-// 刪除單一球隊及旗下球員資料
+// 刪除單一屬性及屬性資料
 Route::delete('types/delete/{id}', [TypesController::class, 'destroy'])->where('id', '[0-9]+')->name('types.destroy');
