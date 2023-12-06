@@ -6,6 +6,7 @@
 @section('pokemon_theme', '您所選取的寶可夢屬性資料')
 
 @section('pokemon_contents')
+<h1>顯示單一屬性</h1>
 屬性編號：{{ $type->id }}<br/>
 屬性：{{ $type->types }}<br/>
 效果絕佳1：{{ $type->super_effective1 }}<br/>
