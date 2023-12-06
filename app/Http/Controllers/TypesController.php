@@ -46,7 +46,8 @@ class TypesController extends Controller
      */
     public function show($id)
     {
-        //
+        $type = Type::findOrFail($id);
+        return view ('typess.show')->with('types',$type);
     }
 
     /**
