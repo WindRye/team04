@@ -7,7 +7,7 @@
 
 @section('pokemon_contents')
 屬性編號：{{ $type->id }}<br/>
-屬性：{{ $type->type }}<br/>
+屬性：{{ $type->types }}<br/>
 效果絕佳1：{{ $type->super_effective1 }}<br/>
 效果絕佳2：{{ $type->super_effective2 }}<br/>
 效果絕佳3：{{ $type->super_effective3 }}<br/>
