@@ -33,9 +33,4 @@ class Type extends Model
         return $this->hasMany('App\Models\Pokemon', 'tid1','tid2');
     }
 
-    public function delete()
-    {
-        $this->pokemons()->delete();
-        return parent::delete();
-    }        
 }
