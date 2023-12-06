@@ -1,7 +1,7 @@
 @extends('app')
 @section('title',"寶可夢圖鑑-列出特定屬性')
 @section('pokemon_contents')
-table>
+<h1>顯示單一屬性</h1>
 編號{{ $pokemon->id }}</br>
         效果絕佳1:{{ $type->super_effective1 }}</br>
         效果絕佳2:{{ $type->super_effective2 }}</br>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'types',
         'super_effective1',
@@ -26,5 +27,10 @@ class Type extends Model
         'updated_at'
     ];
 
-    use HasFactory;
-}
+    public function pokemons()
+    {
+      return $this->hasMary('APP\MOdels\pokemon',tid);
+    }
+    
+        
+    }   

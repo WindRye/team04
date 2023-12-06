@@ -48,7 +48,7 @@ class PokemonsController extends Controller
     public function show($id)
     {
         $pokemon = Pokemon::findOrFail($id);
-        return view ('pokemons.show')->with('pokemons',$pokemon);
+        return view ('pokemons.index')->with('pokemons',$pokemon);
     }
 
     /**

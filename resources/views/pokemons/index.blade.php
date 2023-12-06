@@ -24,13 +24,23 @@
             <td>{{ $pokemons[$i]['region'] }}</td>
             <td>{{ $pokemons[$i]['tid1'] }}</td>
             <td>{{ $pokemons[$i]['tid2'] }}</td>
+            <td>{{ $pokemon->type1->types }}</td>
+            <td>{{ $pokemon->type2->types }}</td>
             <td>{{ $pokemons[$i]['height'] }}</td>
             <td>{{ $pokemons[$i]['weight'] }}</td>
             <td>{{ $pokemons[$i]['gender'] }}</td>
             <td>{{ $pokemons[$i]['ability'] }}</td>
             <td><a href="{{ route('pokemons.show', ['id'=>$pokemon->id }}">顯示</a></td>
             <td><a href="{{ route('pokemons.edit', ['id'=>$pokemons->id }}">修改</a></td>    
-            <td>刪除</td>    
+            <td>刪除</td>  
+            <td>刪除</td>  
+            <td>
+                <form action="{{ url('/pokemons/delete', ['id' => $pokemon->id]) }}" method="post">
+                    <input class="btn btn-default" type="submit" value="刪除" />
+                    @method('delete')
+                    @csrf
+                </form>
+            </td>    
         </tr>
     @endforeach
 <table>
