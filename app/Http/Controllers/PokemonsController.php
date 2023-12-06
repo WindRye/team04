@@ -15,8 +15,8 @@ class PokemonsController extends Controller
      */
     public function index()
     {
-        $p = Pokemon::all()->toArray();
-        return view('pokemons.index')->with('pokemons',$p);
+        $pokemons = Pokemon::all();
+        return view('pokemons.index')->with('pokemons',$pokemons);
     }
     /**
      * Show the form for creating a new resource.
@@ -47,7 +47,9 @@ class PokemonsController extends Controller
      */
     public function show($id)
     {
-        return Pokemon::findOrFail($id)->toArray();
+        $pokemon = Pokemon::findOrFail($id);
+        return view('pokemons.show')->with('pokemon',$pokemon);
+        //return Pokemon::findOrFail($id)->toArray();
     }
 
     /**

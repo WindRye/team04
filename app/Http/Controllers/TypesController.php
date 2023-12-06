@@ -14,8 +14,8 @@ class TypesController extends Controller
      */
     public function index()
     {
-                $t = Type::all()->toArray();
-                return view('types.index')->with('types', $t);
+                $types = Type::all();
+                return view('types.index')->with('types', $types);
     }
 
     /**
@@ -47,7 +47,9 @@ class TypesController extends Controller
      */
     public function show($id)
     {
-        return Type::findOrFail($id)->toArray();
+        $type = Type::findOrFail($id);
+        return view('types.show')->with('type',$type);
+        //return Type::findOrFail($id)->toArray();
     }
 
     /**
