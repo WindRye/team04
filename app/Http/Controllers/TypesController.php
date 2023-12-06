@@ -49,7 +49,8 @@ class TypesController extends Controller
     public function show($id)
     {
         $type = Type::findOrFail($id);
-        return view('types.show')->with('type',$type);
+        $pokemons = $type->pokemons;
+        return view('types.show', ['type'=>$type, 'pokemons'=>$pokemons]);    
 
     }
 
@@ -84,6 +85,8 @@ class TypesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pokemon = Type::findOrFail($id);
+        $pokempn->delete();
+        return redirect('types');
     }
 }

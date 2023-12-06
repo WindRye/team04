@@ -8,8 +8,8 @@
 
 寶可夢:{{ $pokemon->pokemon }}<br/>
 地區:{{ $pokemon->region}}<br/>
-屬性編號1:{{ $pokemon->tid1 }}<br/>
-屬性編號2:{{ $pokemon->tid2}}<br/>
+主屬性:{{ $pokemon->type1->types }}<br/>
+附屬姓:{{ $pokemon->type2->types }}<br/>
 身高m:{{ $pokemon->height }}<br/>
 體重kg:{{ $pokemon->weight }}<br/>
 性別:{{ $pokemon->gender }}<br/>
