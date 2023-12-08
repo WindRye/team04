@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'types',
         'super_effective1',
@@ -25,6 +27,14 @@ class Type extends Model
         'created_at',
         'updated_at'
     ];
+    public function pokemons()
+    {
+        return $this->hasMany('App\Models\Pokemons','tid');
+    }
+    public function delete()
+    {
+        $this->pokemons()->delete();
+        return parent::delete();
+    }        
 
-    use HasFactory;
 }

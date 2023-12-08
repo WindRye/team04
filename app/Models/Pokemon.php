@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pokemon extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'pokemon',
         'region',
@@ -21,5 +22,13 @@ class Pokemon extends Model
     ];
     protected $table = 'pokemons';
 
-    use HasFactory;
+    public function type1()
+    {
+        return $this->belongsTo('App\Models\Type','tid1','id');
+    }
+
+    public function type2()
+    {
+        return $this->belongsTo('App\Models\Type','tid2','id');
+    }
 }
