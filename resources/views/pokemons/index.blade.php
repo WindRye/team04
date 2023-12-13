@@ -5,7 +5,10 @@
 @section('pokemon_theme', '您所選取的寶可夢屬性資料')
 
 @section('pokemon_contents')
-<h1>列出所有寶可夢</h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    <a href="{{ route('pokemons.create') }} ">新增寶可夢</a>
+    <a href="{{ route('pokemons.index') }} ">所有寶可夢</a>
+</div>
 <table>
     <tr>
         <th>編號</th>
