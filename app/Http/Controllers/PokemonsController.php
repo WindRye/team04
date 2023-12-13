@@ -27,7 +27,7 @@ class PokemonsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pokemons.create');
     }
 
     /**
@@ -62,7 +62,8 @@ class PokemonsController extends Controller
      */
     public function edit($id)
     {
-        return Pokemon::findOrFail($id)->toArray();
+        $pokemon = Pokemon::findOrFail($id);
+        return view('pokemons.edit', ['pokemon' =>$pokemon]);
     }
 
     /**
