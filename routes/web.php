@@ -42,3 +42,5 @@ Route::get('types/update/{id}', [TypesController::class, 'update'])->where('id',
 Route::patch('types/update/{id}', [TypesController::class, 'update'])->where('id', '[0-9]+')->name('types.update');
 // 修改屬性資料
 Route::post('types/store', [TypesController::class, 'store'])->where('id', '[0-9]+')->name('types.store');
+// 儲存新屬性資料
+Route::post('types/store', [TypesController::class, 'store'])->name('types.store');

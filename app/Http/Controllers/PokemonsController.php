@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pokemon;
+use App\Models\Type;
 
 
 class PokemonsController extends Controller
@@ -27,6 +28,7 @@ class PokemonsController extends Controller
     {
         //
         $Types = Type::orderBy('types.id','asc')->pluck('types.name','types.id');
+        $types = Type::orderBy('types.id', 'asc')->pluck('types.types', 'types.id');
         return view('pokemons.create',['types'=>$types,'typeSelected'=>null]);
     }
 
