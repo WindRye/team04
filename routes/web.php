@@ -32,6 +32,8 @@ Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id
 // 修改寶可夢資料
 Route::patch('pokemons/update/{id}', [PokemonsController::class, 'update'])->where('id', '[0-9]+')->name('pokemons.update');
 
+// 儲存新寶可夢資料
+Route::post('pokemons/store', [PokemonsController::class, 'store'])->where('id', '[0-9]+')->name('pokemons.store');
 // 顯示顯示所有屬性資料
 Route::get('types',[TypesController::class,'index'])->name('types.index');
 // 顯示單一屬性資料
