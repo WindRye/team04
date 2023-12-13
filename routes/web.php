@@ -30,7 +30,7 @@ Route::get('pokemons/create', [PokemonsController::class, 'create'])->name('poke
 // 修改寶可夢表單
 Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id', '[0-9]+')->name('pokemons.edit');
 // 修改寶可夢資料
-Route::get('pokemons/update/{id}', [PokemonsController::class, 'update'])->where('id', '[0-9]+')->name('pokemons.update');
+Route::patch('pokemons/update/{id}', [PokemonsController::class, 'update'])->where('id', '[0-9]+')->name('pokemons.update');
 
 // 顯示顯示所有屬性資料
 Route::get('types',[TypesController::class,'index'])->name('types.index');
@@ -47,4 +47,4 @@ Route::get('types/create', [TypesController::class, 'create'])->name('types.crea
 // 修改屬性表單
 Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0-9]+')->name('types.edit');
 // 修改屬性資料
-Route::get('types/update/{id}', [TypesController::class, 'update'])->where('id', '[0-9]+')->name('types.update');
+Route::patch('types/update/{id}', [TypesController::class, 'update'])->where('id', '[0-9]+')->name('types.update');
