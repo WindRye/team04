@@ -25,7 +25,7 @@ class PokemonsController extends Controller
      */
     public function create()
     {
-        $types = Type::orderBy('types.id', 'asc')->pluck('types.names', 'types.id');
+        $types = Type::orderBy('types.id', 'asc')->pluck('types.types', 'types.id');
         return view('pokemons.create', ['types' =>$types, 'typeSelected' => null]);
     }
 

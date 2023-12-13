@@ -53,7 +53,7 @@ class TypesTableSeeder extends Seeder
             '冰',
             '草',
             '超能力',
-            '龍'  
+            '龍'
         );
         return $super_effect1;
     }

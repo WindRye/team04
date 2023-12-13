@@ -50,3 +50,5 @@ Route::get('types/create', [TypesController::class, 'create'])->name('types.crea
 Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0-9]+')->name('types.edit');
 // 修改屬性資料
 Route::patch('types/update/{id}', [TypesController::class, 'update'])->where('id', '[0-9]+')->name('types.update');
+// 儲存新屬性資料
+Route::post('types/store', [TypesController::class, 'store'])->name('types.store');
