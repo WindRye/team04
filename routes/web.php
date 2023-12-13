@@ -44,7 +44,7 @@ Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0
 Route::delete('types/delete/{id}', [TypesController::class, 'destroy'])->where('id', '[0-9]+')->name('types.destroy');
 // 新增屬性表單
 Route::get('types/create', [TypesController::class, 'create'])->name('types.create');
-// 修改球隊表單
+// 修改屬性表單
 Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0-9]+')->name('types.edit');
-// 修改球隊表單
+// 修改屬性表單
 Route::get('types/update/{id}', [TypesController::class, 'update'])->where('id', '[0-9]+')->name('types.update');
