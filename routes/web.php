@@ -44,6 +44,8 @@ Route::delete('types/delete/{id}', [TypesController::class, 'destroy'])->where('
 Route::get('types/create', [TypesController::class, 'create'])->name('types.create');
 // 修改屬性資料
 Route::patch('types/update/{id}', [TypesController::class, 'update'])->where('id', '[0-9]+')->name('types.update');
+// 儲存屬性資料
+Route::post('types/store', [TypesController::class, 'store'])->name('types.store');
 
 
 Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
