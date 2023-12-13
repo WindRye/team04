@@ -36,7 +36,6 @@
             <td>{{ $pokemon->ability }}</td>
             <td><a href="{{ route('pokemons.show', ['id'=>$pokemon->id]) }}">顯示</a></td>
             <td><a href="{{ route('pokemons.edit', ['id'=>$pokemon->id]) }}">修改</a></td>    
-            <td>刪除</td>  
             <td>
                 <form action="{{ url('/pokemons/delete', ['id' => $pokemon->id]) }}" method="post">
                     <input class="btn btn-default" type="submit" value="刪除" />
