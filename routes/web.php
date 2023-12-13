@@ -35,3 +35,5 @@ Route::get('pokemon/create',[PokemonsController::class,'create'])->name('pokemon
 Route::delete('types/delete/{id}', [TypesController::class, 'destroy'])->where('id', '[0-9]+')->name('types.destroy');
 //新增屬性表單 
 Route::get('type/create',[TypesController::class,'create'])->name('types.create');
+// 修改屬性表單
+Route::get('types/update/{id}', [TypesController::class, 'update'])->where('id', '[0-9]+')->name('types.update');
