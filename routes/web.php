@@ -25,7 +25,12 @@ Route::get('pokemons/{id}', [PokemonsController::class, 'show'])->where('id', '[
 Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id', '[0-9]+')->name('pokemons.edit');
 // 刪除單一寶可夢資料
 Route::delete('pokemons/delete/{id}', [PokemonsController::class, 'destroy'])->where('id', '[0-9]+')->name('pokemons.destroy');
-
+// 新增寶可夢表單
+Route::get('pokemons/create', [PokemonsController::class, 'create'])->name('pokemons.create');
+// 修改寶可夢表單
+Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id', '[0-9]+')->name('pokemons.edit');
+// 修改寶可夢
+Route::get('pokemons/update/{id}', [PokemonsController::class, 'update'])->where('id', '[0-9]+')->name('pokemons.update');
 
 // 顯示顯示所有屬性資料
 Route::get('types',[TypesController::class,'index'])->name('types.index');
@@ -37,3 +42,5 @@ Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0
 
 // 刪除單一屬性及屬性資料
 Route::delete('types/delete/{id}', [TypesController::class, 'destroy'])->where('id', '[0-9]+')->name('types.destroy');
+// 新增屬性表單
+Route::get('types/create', [TypesController::class, 'create'])->name('types.create');
