@@ -26,6 +26,7 @@ class PokemonsController extends Controller
     public function create()
     {
         //
+        return view('pokemons.create');
     }
 
     /**
@@ -82,6 +83,9 @@ class PokemonsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // 
+        $pokemon = Pokemon::findOrFail($id);
+        $pokemon->delete();
+        return redirect('pokemons');
     }
 }

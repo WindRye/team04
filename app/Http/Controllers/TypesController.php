@@ -25,6 +25,7 @@ class TypesController extends Controller
     public function create()
     {
         //
+        return view('types.create');
     }
 
     /**
@@ -46,8 +47,9 @@ class TypesController extends Controller
      */
     public function show($id)
     {
-        $type = Type::findOrFail($id);
-        return view ('typess.show')->with('types',$type);
+        $pokemons = $type->pokemons;
+        return view('types.show',['type'=>$type,'pokemons'=>$pokemons]);
+        //return Type::findOrFail($id)->toArray();
     }
 
     /**
@@ -82,5 +84,8 @@ class TypesController extends Controller
     public function destroy($id)
     {
         //
+        $type = Type::findOrFail($id);
+        $type->delete();
+        return redirect('types');
     }
 }
