@@ -7,16 +7,16 @@
     {!! Form::text('region', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('type1', '屬性編號1<：') !!}
-    <!-- 待設計一下拉式選單 -->
+    {!! Form::label('tid1', '屬性編號1<：') !!}
+    {!! Form::select('tid1', $types, $typeSelected1, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('type2', '屬性編號2<：') !!}
-    <!-- 待設計一下拉式選單 -->
+    {!! Form::label('tid2', '屬性編號2<：') !!}
+    {!! Form::select('tid2', $types, $typeSelected2, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('height','身高m:') !!}
-    {!! Form::text('height',null ,['class'=>'form-control']) !!}
+    {!! Form::text('height', null, ['class'=>'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('weight', '體重kg：') !!}

@@ -29,12 +29,18 @@ class Type extends Model
     ];
     public function pokemons()
     {
-        return $this->hasMany('App\Models\Pokemons','tid');
+        return $this->hasMany('App\Models\Pokemons','tid1');
     }
-    public function delete()
+    public function customDestroy($id)
     {
-        $this->pokemons()->delete();
-        return parent::delete();
-    }        
+        $type = Type::findOrFail($id);
+    
+        $type->load('pokemons');
+        $type->pokemons->each->delete();
+        $type->delete();
+    
+        return redirect('types');
+    }
+    
 
 }

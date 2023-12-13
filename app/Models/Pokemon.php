@@ -18,7 +18,7 @@ class Pokemon extends Model
         'gender',
         'ability',
         'created_at',
-        'updated_at	'
+        'updated_at	',
     ];
     protected $table = 'pokemons';
 
