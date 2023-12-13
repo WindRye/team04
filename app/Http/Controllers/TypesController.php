@@ -25,7 +25,7 @@ class TypesController extends Controller
      */
     public function create()
     {
-        //
+        return view('types.create');
     }
 
     /**
@@ -61,7 +61,8 @@ class TypesController extends Controller
      */
     public function edit($id)
     {
-        return Type::findOrFail($id)->toArray();
+        $type = Type::findOrFail($id);
+        return view('types.edit', ['type'=>$type]);
     }
 
     /**

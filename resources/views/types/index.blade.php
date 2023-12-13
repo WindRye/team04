@@ -3,7 +3,10 @@
 @section('title', '寶可夢圖鑑 - 列出所有屬性')
 
 @section('pokemon_contents')
-<h1>列出所有屬性</h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    <a href="{{ route('types.create') }} ">新增屬性</a>
+    <a href="{{ route('types.index') }} ">所有屬性</a>
+</div>
 
 <table>
     <tr>
