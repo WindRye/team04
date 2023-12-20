@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pokemon;
 use App\Models\Type;
+use App\Http\Requests\CreatePokemonRequest;
 
 
 class PokemonsController extends Controller
@@ -38,7 +39,7 @@ class PokemonsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePokemonRequest $request)
     {
         $pokemons = $request->input('pokemon');
         $region = $request->input('region');
@@ -96,7 +97,7 @@ class PokemonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreatePokemonRequest $request, $id)
     {
         $pokemon = Pokemon::findOrFail($id);
 
