@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Type;
+use App\Http\Requests\CreateTypeRequest;
 
 class TypesController extends Controller
 {
@@ -34,7 +34,7 @@ class TypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTypeRequest $request)
     {
         
         $types = $request->input('types');
@@ -104,7 +104,7 @@ class TypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateTypeRequest $request, $id)
     {
         
         $type = Type::findOrFail($id);
