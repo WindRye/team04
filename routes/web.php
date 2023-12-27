@@ -32,6 +32,11 @@ Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id
 // 修改寶可夢資料
 Route::patch('pokemons/update/{id}', [PokemonsController::class, 'update'])->where('id', '[0-9]+')->name('pokemons.update');
 
+// 顯示資深球員資料
+Route::get('pokemons/height', [PokemonsController::class, 'height'])->name('pokemons.height');
+// 選定位置查詢球員
+Route::post('pokemons/region', [PokemonsController::class, 'region'])->name('pokemons.region');
+
 // 儲存新寶可夢資料
 Route::post('pokemons/store', [PokemonsController::class, 'store'])->where('id', '[0-9]+')->name('pokemons.store');
 // 顯示顯示所有屬性資料

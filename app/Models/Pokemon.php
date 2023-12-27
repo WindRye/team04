@@ -30,4 +30,19 @@ class Pokemon extends Model
     {
         return $this->belongsTo('App\Models\Type', 'tid2', 'id');
     }
+
+    public function scopeheight($query)
+    {
+        return $query->where('height', '>', 100)->orderBy('height', 'asc');
+    }
+
+    public function scopeAllRegions($query)
+    { 
+        return $query->select('region')->groupBy('region');
+    }
+
+    public function scopeRegion($query, $reg)
+    {
+        return $query->where('region', '=', $reg);
+    }    
 }
