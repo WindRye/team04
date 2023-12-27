@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Pokemon;
 use App\Models\Type;
 use App\Http\Requests\CreatePokemonRequest;
-use Illuminate\Http\Request;
 
 
 class PokemonsController extends Controller
