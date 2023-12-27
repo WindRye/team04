@@ -19,7 +19,12 @@ class PokemonsController extends Controller
     {
         $pokemons = Pokemon::paginate(25);
        $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
-       return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
+       $abilitys = Pokemon::allAbilitys()->pluck('pokemons.ability', 'pokemons.ability');
+       return view('pokemons.index', [ 'pokemons' => $pokemons, 
+                                       'regions'=>$regions,
+                                       'selectedRegion'=>null,
+                                       'abilitys'=>$abilitys,
+                                       'selectedAbility'=>null]);
     }
 
     /**
@@ -39,15 +44,39 @@ class PokemonsController extends Controller
         // 從 Model 拿特定條件下的資料
         $pokemons = Pokemon::height()->paginate(25);
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
+        $abilitys = Pokemon::allAbilitys()->pluck('pokemons.ability', 'pokemons.ability');
         // 把資料送給 view
-        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
+        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions, 'selectedRegion'=>null]);
+        return view('pokemons.index', [ 'pokemons' => $pokemons, 
+                                        'regions'=>$regions,
+                                        'selectedRegion'=>null,
+                                        'abilitys'=>$abilitys,
+                                        'selectedAbility'=>null]);
     }
 
     public function region(Request $request)
     {
         $pokemons = Pokemon::region($request->input('reg'))->paginate(25);
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
-        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
+        $abilitys = Pokemon::allAbilitys()->pluck('pokemons.ability', 'pokemons.ability');
+        return view('pokemons.index', [ 'pokemons' => $pokemons, 
+                                        'regions'=>$regions,
+                                        'selectedRegion'=>null,
+                                        'abilitys'=>$abilitys,
+                                        'selectedAbility'=>null]);
+    }
+
+    public function ability(Request $request)
+    {
+        $pokemons = Pokemon::ability($request->input('ability'))->paginate(25);
+        $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
+        $selectedAbility = $request->input('ability');
+        $abilitys = Pokemon::allAbilitys()->pluck('pokemons.ability', 'pokemons.ability');
+        return view('pokemons.index', [ 'pokemons' => $pokemons, 
+                                        'regions'=>$regions,
+                                        'selectedRegion'=>null,
+                                        'abilitys'=>$abilitys,
+                                        'selectedAbility'=>null]);
     }
 
 

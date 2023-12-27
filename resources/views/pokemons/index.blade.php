@@ -44,12 +44,20 @@
         </tr>
     @endforeach
     <a href="{{ route('pokemons.height') }} ">身高高於100的寶可夢</a>
-</div><form action="{{ url('pokemons/region') }}" method='POST'>
+    <form action="{{ url('pokemons/region') }}" method='GET'>
         {!! Form::label('reg', '選取地區：') !!}
         {!! Form::select('reg', $regions, ['class' => 'form-control']) !!}
         <input class="btn btn-default" type="submit" value="查詢" />
         @csrf
     </form>  
+    <form action="{{ url('pokemons/ability') }}" method='GET'>
+        {!! Form::label('ability', '選取特性：') !!}
+        {!! Form::select('ability', $abilitys, $selectedAbility, ['class' => 'form-control']) !!}
+        <input class="btn btn-default" type="submit" value="查詢" />
+        @csrf
+    </form> 
+
+</div>
     </table>
 {{ $pokemons->links() }}
 @endsection

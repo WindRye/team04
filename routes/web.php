@@ -37,7 +37,9 @@ Route::post('pokemons/region', [PokemonsController::class, 'region'])->name('pok
 
 //新增寶可夢表單 
 Route::post('pokemons/store', [PokemonsController::class, 'store'])->where('id', '[0-9]+')->name('pokemons.store');
-// 刪除單一球隊及旗下球員資料
+// 選定特性查詢寶可夢
+Route::get('pokemons/ability', [PokemonsController::class, 'ability'])->name('pokemons.ability');
+// 刪除單一寶可夢資料
 Route::delete('types/delete/{id}', [TypesController::class, 'destroy'])->where('id', '[0-9]+')->name('types.destroy');
 //新增屬性表單 
 Route::get('type/create',[TypesController::class,'create'])->name('types.create');
