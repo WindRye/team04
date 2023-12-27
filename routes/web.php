@@ -31,21 +31,21 @@ Route::get('pokemons/create', [PokemonsController::class, 'create'])->name('poke
 Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id', '[0-9]+')->name('pokemons.edit');
 // 修改寶可夢資料
 Route::patch('pokemons/update/{id}', [PokemonsController::class, 'update'])->where('id', '[0-9]+')->name('pokemons.update');
-
 // 顯示寶可夢身高>100資料
 Route::get('pokemons/height', [PokemonsController::class, 'height'])->name('pokemons.height');
 // 選定地區查詢寶可夢
 Route::get('pokemons/region', [PokemonsController::class, 'region'])->name('pokemons.region');
-
 // 儲存新寶可夢資料
 Route::post('pokemons/store', [PokemonsController::class, 'store'])->where('id', '[0-9]+')->name('pokemons.store');
+// 選定特性查詢寶可夢
+Route::get('pokemons/ability', [PokemonsController::class, 'ability'])->name('pokemons.ability');
+
 // 顯示顯示所有屬性資料
 Route::get('types',[TypesController::class,'index'])->name('types.index');
 // 顯示單一屬性資料
 Route::get('types/{id}', [TypesController::class, 'show'])->where('id', '[0-9]+')->name('types.show');
 // 修改單一屬性
 Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0-9]+')->name('types.edit');
-
 
 // 刪除單一屬性及屬性資料
 Route::delete('types/delete/{id}', [TypesController::class, 'destroy'])->where('id', '[0-9]+')->name('types.destroy');
