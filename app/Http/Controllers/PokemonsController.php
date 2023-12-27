@@ -18,7 +18,7 @@ class PokemonsController extends Controller
     public function index()
     {
        
-        $pokemons = Pokemon::all();
+        $pokemons = Pokemon::paginate(25);
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
         return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
     }
@@ -37,7 +37,7 @@ class PokemonsController extends Controller
     public function height()
     {
         // 從 Model 拿特定條件下的資料
-        $pokemons = Pokemon::height()->get();
+        $pokemons = Pokemon::height()->paginate(25);
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
         // 把資料送給 view
         return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
@@ -45,7 +45,7 @@ class PokemonsController extends Controller
 
     public function region(Request $request)
     {
-        $pokemons = Pokemon::region($request->input('reg'))->get();
+        $pokemons = Pokemon::region($request->input('reg'))->paginate(25);
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
         return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
     }

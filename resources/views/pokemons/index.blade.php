@@ -53,6 +53,6 @@
     </tr>
     @endforeach
 </table>
-
+{{ $pokemons->links() }}
 
 @endsection
