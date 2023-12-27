@@ -50,6 +50,6 @@
         <input class="btn btn-default" type="submit" value="查詢" />
         @csrf
     </form>  
-<table>
-
+    </table>
+{{ $pokemons->links() }}
 @endsection
