@@ -2,6 +2,8 @@
 
 @section('title', '顯示特定屬性')
 
+@section('pokemon_theme', '寶可夢')
+
 @section('pokemon_theme', '您所選取的寶可夢屬性資料')
 
 @section('pokemon_contents')
@@ -9,9 +11,9 @@
     <a href="{{ route('pokemons.create') }} ">新增寶可夢</a>
     <a href="{{ route('pokemons.index') }} ">所有寶可夢</a>
     <a href="{{ route('pokemons.height') }} ">身高高於100的寶可夢</a>
-</div><form action="{{ url('pokemons/region') }}" method='POST'>
+</div><form action="{{ url('pokemons/region') }}" method='GET'>
         {!! Form::label('reg', '選取地區：') !!}
-        {!! Form::select('reg', $regions, ['class' => 'form-control']) !!}
+        {!! Form::select('reg', $regions, $selectedRegion, ['class' => 'form-control']) !!}
         <input class="btn btn-default" type="submit" value="查詢" />
         @csrf
     </form>  
@@ -53,6 +55,5 @@
     </tr>
     @endforeach
 </table>
-{{ $pokemons->links() }}
-
+{{ $pokemons->withQueryString()->links() }}
 @endsection
