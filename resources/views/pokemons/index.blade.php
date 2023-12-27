@@ -8,7 +8,13 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('pokemons.create') }} ">新增寶可夢</a>
     <a href="{{ route('pokemons.index') }} ">所有寶可夢</a>
-</div>
+    <a href="{{ route('pokemons.height') }} ">身高高於100的寶可夢</a>
+</div><form action="{{ url('pokemons/region') }}" method='POST'>
+        {!! Form::label('reg', '選取地區：') !!}
+        {!! Form::select('reg', $regions, ['class' => 'form-control']) !!}
+        <input class="btn btn-default" type="submit" value="查詢" />
+        @csrf
+    </form>  
 <table>
     <tr>
         <th>編號</th>

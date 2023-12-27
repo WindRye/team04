@@ -28,6 +28,10 @@ Route::delete('pokemons/delete/{id}', [PokemonsController::class, 'destroy'])->w
 Route::get('pokemons/create', [PokemonsController::class, 'create'])->name('pokemons.create');
 // 修改寶可夢資料
 Route::patch('pokemons/update/{id}', [PokemonsController::class, 'update'])->where('id', '[0-9]+')->name('pokemons.update');
+// 顯示寶可夢身高>100資料
+Route::get('pokemons/height', [PokemonsController::class, 'height'])->name('pokemons.height');
+// 選定地區查詢寶可夢
+Route::get('pokemons/region', [PokemonsController::class, 'region'])->name('pokemons.region');
 // 儲存新寶可夢資料
 Route::post('pokemons/store', [PokemonsController::class, 'store'])->where('id', '[0-9]+')->name('pokemons.store');
 
