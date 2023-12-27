@@ -7,6 +7,7 @@
 @section('pokemon_contents')
 
 @section('pokemon_contents')
+    @include('message.list')
     {!! Form::open(['url' => 'pokemons/store']) !!}
     @include('pokemons.form', ['submitButtonText'=>"新增寶可夢資料"])
     {!! Form::close() !!}
