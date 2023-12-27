@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pokemon;
 use App\Models\Type;
 use App\Http\Requests\CreatePokemonRequest;
+use Illuminate\Http\Request;
 
 
 class PokemonsController extends Controller
@@ -18,6 +19,8 @@ class PokemonsController extends Controller
     public function index()
     {
        return Pokemon::all()->toArray();
+       $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
+       return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
     }
 
     /**
@@ -32,6 +35,22 @@ class PokemonsController extends Controller
         $types = Type::orderBy('types.id', 'asc')->pluck('types.types', 'types.id');
         return view('pokemons.create',['types'=>$types,'typeSelected'=>null]);
     }
+    public function height()
+    {
+        // 從 Model 拿特定條件下的資料
+        $pokemons = Pokemon::height()->get();
+        $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
+        // 把資料送給 view
+        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
+    }
+
+    public function region(Request $request)
+    {
+        $pokemons = Pokemon::region($request->input('reg'))->get();
+        $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
+        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
+    }
+
 
     /**
      * Store a newly created resource in storage.

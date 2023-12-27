@@ -43,6 +43,13 @@
             </td>    
         </tr>
     @endforeach
+    <a href="{{ route('pokemons.height') }} ">身高高於100的寶可夢</a>
+</div><form action="{{ url('pokemons/region') }}" method='POST'>
+        {!! Form::label('reg', '選取地區：') !!}
+        {!! Form::select('reg', $regions, ['class' => 'form-control']) !!}
+        <input class="btn btn-default" type="submit" value="查詢" />
+        @csrf
+    </form>  
 <table>
 
 @endsection
