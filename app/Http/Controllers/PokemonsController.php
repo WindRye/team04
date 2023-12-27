@@ -18,7 +18,7 @@ class PokemonsController extends Controller
     {
         $pokemons = Pokemon::paginate(25);
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
-        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
+        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions, 'selectedRegion'=>null]);
     }
     /**
      * Show the form for creating a new resource.
@@ -37,14 +37,15 @@ class PokemonsController extends Controller
         $pokemons = Pokemon::height()->paginate(25);
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
         // 把資料送給 view
-        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
+        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions, 'selectedRegion'=>null]);
     }
 
     public function region(Request $request)
     {
         $pokemons = Pokemon::region($request->input('reg'))->paginate(25);
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
-        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions]);
+        $selectedRegion = $request->input('reg');
+        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions, 'selectedRegion'=>$selectedRegion]);
     }
 
     /**
