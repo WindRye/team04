@@ -2,7 +2,7 @@
 
 @section('title', '顯示特定屬性')
 
-@section('pokemon_theme', '您所選取的寶可夢屬性資料')
+@section('pokemon_theme', '屬性')
 
 @section('pokemon_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
