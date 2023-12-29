@@ -36,6 +36,8 @@ Route::delete('pokemons/delete/{id}', [PokemonsController::class, 'destroy'])->w
 Route::get('pokemons/height', [PokemonsController::class, 'height'])->name('pokemons.height');
 // 寶可夢地區查詢功能
 Route::get('pokemons/region', [PokemonsController::class, 'region'])->name('pokemons.region');
+// 選定特性查詢寶可夢
+Route::get('pokemons/ability', [PokemonsController::class, 'ability'])->name('pokemons.ability');
 
 // 顯示顯示所有屬性資料
 Route::get('types', [TypesController::class, 'index'])->name('types.index');
