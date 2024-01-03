@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PokemonsController;
 use App\Http\Controllers\TypesController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,3 +60,6 @@ Route::post('types/store', [TypesController::class, 'store'])->name('types.store
 
 Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
 Route::get('types',[TypesController::class,'index'])->name('types.index');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
