@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '顯示特定屬性')
+@section('title', '顯示所有寶可夢')
 
 @section('pokemon_theme', '寶可夢')
 

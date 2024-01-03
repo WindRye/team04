@@ -92,6 +92,7 @@ class TypesController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
         $type = Type::findOrFail($id);
         return view('types.edit', ['type' =>$type]);
     }
@@ -105,7 +106,6 @@ class TypesController extends Controller
      */
     public function update(CreateTypeRequest $request, $id)
     {
-        
         $type = Type::findOrFail($id);
         $type->types = $request->input('types');
         $type->super_effective1 = $request->input('super_effective1');

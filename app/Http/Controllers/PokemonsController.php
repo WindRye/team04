@@ -127,6 +127,7 @@ class PokemonsController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
         $pokemon = Pokemon::findOrFail($id);
         $types = Type::orderBy('types.id', 'asc')->pluck('types.types', 'types.id');
         $selected_tags1 = $pokemon->type1->id;
@@ -143,8 +144,8 @@ class PokemonsController extends Controller
      */
     public function update(CreatePokemonRequest $request, $id)
     {
-        $pokemon = Pokemon::findOrFail($id);
 
+        $pokemon = Pokemon::findOrFail($id);
         $pokemon->pokemon = $request->input('pokemon');
         $pokemon->tid1 = $request->input('tid1');
         $pokemon->tid2 = $request->input('tid2');
