@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',function(){
-    return redirect('pokemons');
+Route::middleware(['auth'])->group(function () {
+    // 註解一下
+    Route::get('/', function () {
+        return redirect('pokemons');
 });
 // 顯示顯示所有寶可夢資料
 Route::get('pokemons', [PokemonsController::class, 'index'])->name('pokemons.index');
@@ -60,6 +62,7 @@ Route::post('types/store', [TypesController::class, 'store'])->name('types.store
 
 Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
 Route::get('types',[TypesController::class,'index'])->name('types.index');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
