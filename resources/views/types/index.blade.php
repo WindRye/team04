@@ -29,6 +29,7 @@
         <th>技能無效</th>
         <th>操作1</th>
         @can('admin')
+        <th>操作2</th>
         @elsecan('manager')
         <th>操作2</th>
         @endcan
@@ -58,6 +59,5 @@
             @endcan
         </tr>
     @endforeach
-<table>
-
+</table>
 @endsection

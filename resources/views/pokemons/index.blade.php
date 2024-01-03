@@ -38,8 +38,12 @@
         <th>性別</th>
         <th>特性</th>
         <th>操作1</th>
+        @can('admin')
         <th>操作2</th>
         <th>操作3</th>
+        @elsecan('manager')
+        <th>操作2</th>
+        @endcan
     </tr>
     @foreach($pokemons as $pokemon)
         <tr>
@@ -53,6 +57,7 @@
             <td>{{ $pokemon->gender }}</td>
             <td>{{ $pokemon->ability }}</td>
             <td><a href="{{ route('pokemons.show', ['id'=>$pokemon->id]) }}">顯示</a></td>
+            @can('admin')
             <td><a href="{{ route('pokemons.edit', ['id'=>$pokemon->id]) }}">修改</a></td>    
             <td>
                 <form action="{{ url('/pokemons/delete', ['id' => $pokemon->id]) }}" method="post">
@@ -61,6 +66,9 @@
                     @csrf
                 </form>
             </td>  
+            @elsecan('manager')
+            <td><a href="{{ route('pokemons.edit', ['id'=>$pokemon->id]) }}">修改</a></td>    
+            @endcan
         </tr>
     @endforeach
 </table>
