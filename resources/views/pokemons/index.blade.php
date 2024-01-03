@@ -1,6 +1,13 @@
 @extends('app')
 @section('title',"寶可夢圖鑑-列出所有寶可夢')
 @section('pokemon_contents')
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    @can('admin')
+    <a href="{{ route('pokemons.create') }} ">新增寶可夢</a>
+    @endcan
+    <a href="{{ route('pokemons.index') }} ">所有寶可夢</a>
+    <a href="{{ route('pokemons.height') }} ">身高高於100的寶可夢</a>
+<form action="{{ url('pokemons/region') }}" method='GET'>
 <h1>列出所有寶可夢</h1>
   <table>
     <tr>

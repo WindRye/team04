@@ -17,7 +17,10 @@
         <th>效果甚微4</th>
         <th>效果甚微5</th>
         <th>操作1</th>
+        @can('admin')
+        @elsecan('manager')
         <th>操作2</th>
+        @endcan
         <th>操作3</th>
     </tr>
     @foreach($pokemons as $type)
@@ -37,7 +40,11 @@
             <td>{{ $pokemons->not_very_effective6}}</td>
             <td>{{ $pokemons->not_very_effective7}}</td>
             <td><a href="{{ route('pokemons.show', ['id'=>$pokemon->id }}">顯示</a></td>
+            @can('admin')            
             <td><a href="{{ route('pokemons.edit', ['id'=>$pokemons->id }}">修改</a></td>    
+            @elsecan('manager')
+            <td><a href="{{ route('types.edit', ['id'=>$type->id]) }}">修改</a></td>   
+            @endcan
             <td>刪除</td>    
         </tr>
     @endforeach
