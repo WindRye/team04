@@ -27,15 +27,15 @@ Route::get('pokemons/{id}', [PokemonsController::class, 'show'])->where('id', '[
 // 修改單一寶可夢表單
 Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id', '[0-9]+')->name('pokemons.edit');
 // 新增屬性表單
-Route::get('pokemons/create', [PokemonsController::class, 'create'])->name('pokemons.create');
+Route::get('pokemons/create', [PokemonsController::class, 'create'])->name('pokemons.create')->middleware('can:admin');
 // 修改寶可夢表單
 Route::get('pokemons/{id}/edit', [PokemonsController::class, 'edit'])->where('id', '[0-9]+')->name('pokemons.edit');
 // 修改寶可夢資料
 Route::patch('pokemons/update/{id}', [PokemonsController::class, 'update'])->where('id', '[0-9]+')->name('pokemons.update');
 // 儲存新寶可夢資料
-Route::post('pokemons/store', [PokemonsController::class, 'store'])->where('id', '[0-9]+')->name('pokemons.store');
+Route::post('pokemons/store', [PokemonsController::class, 'store'])->where('id', '[0-9]+')->name('pokemons.store')->middleware('can:admin');
 // 刪除單一寶可夢資料
-Route::delete('pokemons/delete/{id}', [PokemonsController::class, 'destroy'])->where('id', '[0-9]+')->name('pokemons.destroy');
+Route::delete('pokemons/delete/{id}', [PokemonsController::class, 'destroy'])->where('id', '[0-9]+')->name('pokemons.destroy')->middleware('can:admin');
 // 顯示寶可夢身高高於100資料
 Route::get('pokemons/height', [PokemonsController::class, 'height'])->name('pokemons.height');
 // 寶可夢地區查詢功能
@@ -50,18 +50,16 @@ Route::get('types/{id}', [TypesController::class, 'show'])->where('id', '[0-9]+'
 // 修改單一屬性表單
 Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0-9]+')->name('types.edit');
 // 新增屬性表單
-Route::get('types/create', [TypesController::class, 'create'])->name('types.create');
+Route::get('types/create', [TypesController::class, 'create'])->name('types.create')->middleware('can:admin');
 // 修改屬性表單
 Route::get('types/{id}/edit', [TypesController::class, 'edit'])->where('id', '[0-9]+')->name('types.edit');
 // 刪除單一屬性及以下資料
-Route::delete('types/delete/{id}', [TypesController::class, 'customDestroy'])->where('id', '[0-9]+')->name('types.destroy');
+Route::delete('types/delete/{id}', [TypesController::class, 'customDestroy'])->where('id', '[0-9]+')->name('types.destroy')->middleware('can:admin');
 // 修改屬性資料
 Route::patch('types/update/{id}', [TypesController::class, 'update'])->where('id', '[0-9]+')->name('types.update');
 // 儲存新屬性資料
-Route::post('types/store', [TypesController::class, 'store'])->name('types.store');
+Route::post('types/store', [TypesController::class, 'store'])->name('types.store')->middleware('can:admin');
 
-Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
-Route::get('types',[TypesController::class,'index'])->name('types.index');
 });
 Auth::routes();
 

@@ -64,7 +64,7 @@
                 </form>
             </td>
             @elsecan('manager')
-            <td><a href="{{ route('teams.edit', ['id'=>$team->id]) }}">修改</a></td>    
+            <td><a href="{{ route('types.edit', ['id'=>$type->id]) }}">修改</a></td>    
             @endcan   
     </tr>
     @endforeach
