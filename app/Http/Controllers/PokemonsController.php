@@ -130,6 +130,8 @@ class PokemonsController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+
         $pokemon = Pokemon::findOrFail($id);
         $types = Type::orderBy('types.id', 'asc')->pluck('types.types', 'types.id');
         $selected_tags = $pokemon->type1->id;
