@@ -57,3 +57,18 @@ Route::post('types/store', [TypesController::class, 'store'])->name('types.store
 
 Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
 Route::get('types',[TypesController::class,'index'])->name('types.index');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
