@@ -51,3 +51,6 @@ Route::patch('types/update/{id}', [TypesController::class, 'update'])->where('id
 Route::post('types/store', [TypesController::class, 'store'])->where('id', '[0-9]+')->name('types.store');
 // 儲存新屬性資料
 Route::post('types/store', [TypesController::class, 'store'])->name('types.store');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
