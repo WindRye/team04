@@ -1,5 +1,6 @@
 @extends('app')
 @section('title',"寶可夢圖鑑-列出所有寶可夢')
+@section('pokemon_theme','寶可夢')
 @section('pokemon_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     @can('admin')
