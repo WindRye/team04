@@ -31,7 +31,6 @@
         <th>操作1</th>
         @can('admin')
         <th>操作2</th>
-        <th>操作3</th>
         @elsecan('manager')
         <th>操作2</th>
         @endcan

@@ -29,7 +29,7 @@ class Type extends Model
     ];
     public function pokemons()
     {
-        return $this->hasMany('App\Models\Pokemons','tid1');
+        return $this->hasMany('App\Models\Pokemons','tid1','tid2');
     }
     public function customDestroy($id)
     {
