@@ -2,24 +2,7 @@
 @section('title',"寶可夢圖鑑-列出所有寶可夢')
 @section('pokemon_theme','寶可夢')
 @section('pokemon_contents')
-<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-    @can('admin')
-    <a href="{{ route('pokemons.create') }} ">新增寶可夢</a>
-    @endcan
-    <a href="{{ route('pokemons.index') }} ">所有寶可夢</a>
-    <a href="{{ route('pokemons.height') }} ">身高高於100的寶可夢</a>
-<form action="{{ url('pokemons/region') }}" method='GET'>
-    {!! Form::label('reg','選取地區:')!!}
-    {!! Form::label('reg',$regions,$selectedRegion,['class'=>'form-control'])!!}
-    <input class="btn btn-default" type="submit" value="查詢" />
-    @csrf
-    </form> 
-    <form action="{{ url('pokemons/ability') }}" method='GET'>
-        {!! Form::label('ability', '選取特性：') !!}
-        {!! Form::select('ability', $abilitys, $selectedAbility, ['class' => 'form-control']) !!}
-        <input class="btn btn-default" type="submit" value="查詢" />
-        @csrf
-    </form> 
+
 <h1>列出所有寶可夢</h1>
   <table>
     <tr>
@@ -76,7 +59,6 @@
         @csrf
     </form> 
 
-</div>
     </table>
 {{ $pokemons->links() }}
 @endsection

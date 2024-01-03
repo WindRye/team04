@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Pokemon;
 use App\Models\Type;
 use App\Http\Requests\CreatePokemonRequest;
-
+use Illuminate\Http\Request;
 
 class PokemonsController extends Controller
 {
@@ -18,15 +17,14 @@ class PokemonsController extends Controller
     public function index()
     {
         $pokemons = Pokemon::paginate(25);
-       $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
-       $abilitys = Pokemon::allAbilitys()->pluck('pokemons.ability', 'pokemons.ability');
-       return view('pokemons.index', [ 'pokemons' => $pokemons, 
-                                       'regions'=>$regions,
-                                       'selectedRegion'=>null,
-                                       'abilitys'=>$abilitys,
-                                       'selectedAbility'=>null]);
+        $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
+        $abilitys = Pokemon::allAbilitys()->pluck('pokemons.ability', 'pokemons.ability');
+        return view('pokemons.index', [ 'pokemons' => $pokemons, 
+                                        'regions'=>$regions,
+                                        'selectedRegion'=>null,
+                                        'abilitys'=>$abilitys,
+                                        'selectedAbility'=>null]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -34,11 +32,10 @@ class PokemonsController extends Controller
      */
     public function create()
     {
-        //
-        $Types = Type::orderBy('types.id','asc')->pluck('types.name','types.id');
         $types = Type::orderBy('types.id', 'asc')->pluck('types.types', 'types.id');
-        return view('pokemons.create',['types'=>$types,'typeSelected'=>null]);
+        return view('pokemons.create', ['types' =>$types, 'typeSelected' => null]);
     }
+
     public function height()
     {
         // 從 Model 拿特定條件下的資料
@@ -46,18 +43,18 @@ class PokemonsController extends Controller
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
         $abilitys = Pokemon::allAbilitys()->pluck('pokemons.ability', 'pokemons.ability');
         // 把資料送給 view
-        return view('pokemons.index', ['pokemons' => $pokemons, 'regions'=>$regions, 'selectedRegion'=>null]);
         return view('pokemons.index', [ 'pokemons' => $pokemons, 
                                         'regions'=>$regions,
                                         'selectedRegion'=>null,
                                         'abilitys'=>$abilitys,
                                         'selectedAbility'=>null]);
     }
-
+    
     public function region(Request $request)
     {
         $pokemons = Pokemon::region($request->input('reg'))->paginate(25);
         $regions = Pokemon::allRegions()->pluck('pokemons.region', 'pokemons.region');
+        $selectedRegion = $request->input('reg');
         $abilitys = Pokemon::allAbilitys()->pluck('pokemons.ability', 'pokemons.ability');
         return view('pokemons.index', [ 'pokemons' => $pokemons, 
                                         'regions'=>$regions,
@@ -78,7 +75,6 @@ class PokemonsController extends Controller
                                         'abilitys'=>$abilitys,
                                         'selectedAbility'=>null]);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -107,19 +103,23 @@ class PokemonsController extends Controller
             'gender'=>$gender,
             'ability'=>$ability]);
         return redirect('pokemons');
-        
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Respons
+     * 
+     * 
+     * 
+     * 
      */
     public function show($id)
     {
         $pokemon = Pokemon::findOrFail($id);
-        return view ('pokemons.index')->with('pokemons',$pokemon);
+        return view('pokemons.show')->with('pokemon',$pokemon);
+        //return Pokemon::findOrFail($id)->toArray();
     }
 
     /**
@@ -130,11 +130,12 @@ class PokemonsController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+
         $pokemon = Pokemon::findOrFail($id);
-        $types = Type::orderBy('types.id','asc')->pluck('types.name','types.id');
-        $selected_tag = $pokemon->$types->$id;
-        return view('pokemons.edit', ['pokemon' =>$pokemon, 'types' =>$types, 'typeSelected' =>$selected_tags]);
-        //        return Pokemon::findOrFail($id)->toArray();
+        $types = Type::orderBy('types.id', 'asc')->pluck('types.types', 'types.id');
+        $selected_tags = $pokemon->type1->id;
+        return view('pokemons.edit', ['pokemon' =>$pokemon, 'types' => $types, 'typeSelected' => $selected_tags]);
     }
 
     /**
@@ -169,7 +170,6 @@ class PokemonsController extends Controller
      */
     public function destroy($id)
     {
-        // 
         $pokemon = Pokemon::findOrFail($id);
         $pokemon->delete();
         return redirect('pokemons');

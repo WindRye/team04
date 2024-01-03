@@ -29,7 +29,7 @@ class Type extends Model
 
     public function pokemons()
     {
-      return $this->hasMary('APP\MOdels\pokemon',tid);
+      return $this->hasMary('APP\MOdels\pokemon','tid1','tid2');
     }
     
         

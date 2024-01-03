@@ -1,3 +1,7 @@
+@extends('app')
+
+@section('title','建立寶可夢表單')
+
 @section('pokemon_theme', '建立屬性的表單')
 
 @section('pokemon_contents')

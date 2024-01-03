@@ -21,11 +21,7 @@ class Pokemon extends Model
         'updated_at	'
     ];
     protected $table = 'pokemons';
-public function type()
-{
-    return $this->belongsTo('APP\Models\Type','tid','id');
-}
-    use HasFactory;
+
     public function type1()
     {
         return $this->belongsTo('App\Models\Type', 'tid1', 'id');
@@ -34,7 +30,7 @@ public function type()
     {
         return $this->belongsTo('App\Models\Type', 'tid2', 'id');
     }
-    
+
     public function scopeheight($query)
     {
         return $query->where('height', '>', 100)->orderBy('height', 'asc');
@@ -48,7 +44,8 @@ public function type()
     public function scopeRegion($query, $reg)
     {
         return $query->where('region', '=', $reg);
-    }    
+    }  
+    
     public function scopeAllAbilitys($query)
     { 
         return $query->select('ability')->groupBy('ability');
@@ -57,5 +54,5 @@ public function type()
     public function scopeAbility($query, $ability)
     {
         return $query->where('ability', '=', $ability);
-    }
+    }    
 }
