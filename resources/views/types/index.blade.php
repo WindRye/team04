@@ -28,6 +28,11 @@
         <th>收效甚微6</th>
         <th>收效甚微7</th>
         <th>技能無效</th>
+        <th>操作1</th>
+        @can('admin')
+        @elsecan('manager')
+        <th>操作2</th>
+        @endcan
     </tr>
     @foreach($types as $type)
     <tr>
@@ -47,7 +52,11 @@
             <td>{{ $type->not_very_effective7 }}</td>
             <td>{{ $type->not_effective }}</td>
             <td><a href="{{ route('types.show', ['id'=>$type->id]) }}">顯示</a></td>
-            <td><a href="{{ route('types.edit', ['id'=>$type->id]) }}">修改</a></td>     
+            @can('admin')
+            <td><a href="{{ route('types.edit', ['id'=>$type->id]) }}">修改</a></td>   
+            @elsecan('manager')
+            <td><a href="{{ route('types.edit', ['id'=>$type->id]) }}">修改</a></td>   
+            @endcan  
             <td>
                 <form action="{{ url('types/delete', ['id' => $type->id]) }}" method="post">
                     <input class="btn btn-default" type="submit" value="刪除" />
