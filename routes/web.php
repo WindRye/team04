@@ -34,6 +34,9 @@ Route::get('pokemons/height', [PokemonsController::class, 'height'])->name('poke
 Route::get('pokemons/region', [PokemonsController::class, 'region'])->name('pokemons.region');
 // 儲存新寶可夢資料
 Route::post('pokemons/store', [PokemonsController::class, 'store'])->where('id', '[0-9]+')->name('pokemons.store');
+// 選定特性查詢寶可夢
+Route::get('pokemons/ability', [PokemonsController::class, 'ability'])->name('pokemons.ability');
+
 
 
 // 顯示顯示所有屬性資料

@@ -45,5 +45,15 @@ class Pokemon extends Model
     public function scopeRegion($query, $reg)
     {
         return $query->where('region', '=', $reg);
+    }     
+    
+    public function scopeAllAbilitys($query)
+    { 
+        return $query->select('ability')->groupBy('ability');
+    }
+
+    public function scopeAbility($query, $ability)
+    {
+        return $query->where('ability', '=', $ability);
     }    
 }
