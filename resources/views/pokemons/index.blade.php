@@ -9,6 +9,17 @@
     <a href="{{ route('pokemons.index') }} ">所有寶可夢</a>
     <a href="{{ route('pokemons.height') }} ">身高高於100的寶可夢</a>
 <form action="{{ url('pokemons/region') }}" method='GET'>
+    {!! Form::label('reg','選取地區:')!!}
+    {!! Form::label('reg',$regions,$selectedRegion,['class'=>'form-control'])!!}
+    <input class="btn btn-default" type="submit" value="查詢" />
+    @csrf
+    </form> 
+    <form action="{{ url('pokemons/ability') }}" method='GET'>
+        {!! Form::label('ability', '選取特性：') !!}
+        {!! Form::select('ability', $abilitys, $selectedAbility, ['class' => 'form-control']) !!}
+        <input class="btn btn-default" type="submit" value="查詢" />
+        @csrf
+    </form> 
 <h1>列出所有寶可夢</h1>
   <table>
     <tr>
