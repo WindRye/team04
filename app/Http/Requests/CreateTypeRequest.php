@@ -37,4 +37,4 @@ class CreateTypeRequest extends FormRequest
             "types.required" => "屬性名稱 為必填",
         ];
     }
-}
+}`
