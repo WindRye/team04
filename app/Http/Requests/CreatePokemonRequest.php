@@ -45,7 +45,7 @@ class CreatePokemonRequest extends FormRequest
 
             "height.numeric" => "寶可夢身高 必須為數字",
             "height.min" => "寶可夢身高 範圍必須介於0.1~150之間",
-            "height.max" => "寶可夢身高 範圍必須介於0.1~250之間",
+            "height.max" => "寶可夢身高 範圍必須介於0.1~150之間",
 
             "weight.numeric" => "寶可夢身高 必須為數字",
             "weight.min" => "寶可夢體重 範圍必須介於0.1~1000之間",
