@@ -31,7 +31,7 @@ class CreatePokemonRequest extends FormRequest
             'height' => 'nullable',
             'weight' => 'nullable',
             'gender' => 'nullable',
-            'ability' => 'required|string|min:2|max:191',            
+            'ability' => 'required|string|min:2|max:191' ,        
         ];
     }
     public function messages()

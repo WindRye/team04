@@ -59,7 +59,6 @@ Route::delete('types/delete/{id}', [TypesController::class, 'customDestroy'])->w
 Route::patch('types/update/{id}', [TypesController::class, 'update'])->where('id', '[0-9]+')->name('types.update');
 // 儲存新屬性資料
 Route::post('types/store', [TypesController::class, 'store'])->name('types.store')->middleware('can:admin');
-
 });
 Auth::routes();
 
