@@ -297,7 +297,7 @@ class PokemonsTableSeeder extends Seeder
                 'region' => $region,
                 'tid1' => rand(1,17),
                 'tid2' => rand(1,17),
-                'height' => rand(0.1,14.5),
+                'height' => rand(0.1,150),
                 'weight' => rand(0.0,1000),
                 'gender' => $gender,
                 'ability' => $ability,
