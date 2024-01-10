@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PokemonsController;
 use App\Http\Controllers\TypesController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,23 +59,10 @@ Route::middleware(['auth'])->group(function () {
     // 儲存新屬性資料
     Route::post('types/store', [TypesController::class, 'store'])->name('types.store')->middleware('can:admin');
 });
-Auth::routes();
 
-
-Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
-Route::get('types',[TypesController::class,'index'])->name('types.index');
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+//Route::get('pokemons',[PokemonsController::class,'index'])->name('pokemons.index');
+//Route::get('types',[TypesController::class,'index'])->name('types.index');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

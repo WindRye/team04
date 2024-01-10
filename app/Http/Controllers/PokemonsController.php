@@ -169,6 +169,9 @@ class PokemonsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pokemon = Pokemon :: findOrFail($id);
+        $pokemon -> delete();
+        return redirect('pokemons');
     }
+         
 }
